@@ -1,0 +1,27 @@
+import './index.css'
+
+const HistoryItem = props => {
+  const {historyItem, deleteItem} = props
+  const {id, timeAccessed, logoUrl, title, domainUrl} = historyItem
+  const onDelete = () => {
+    deleteItem(id)
+  }
+  return (
+    <li className="item-container">
+      <div className="item-container2">
+        <p>{timeAccessed}</p>
+        <img alt="domain logo" className="logo-icon" src={logoUrl} />
+        <p>{title}</p>
+        <p>{domainUrl}</p>
+      </div>
+      <button data-testid="delete" type="button" onClick={onDelete}>
+        <img
+          src="https://assets.ccbp.in/frontend/react-js/delete-img.png"
+          alt="delete"
+        />
+      </button>
+    </li>
+  )
+}
+
+export default HistoryItem
